@@ -137,3 +137,8 @@ Known overlaps, present in the original with the same classes and therefore kept
 
 Functional gap inherited from the original: the mobile hamburger button opens nothing — there is no
 mobile menu, so navigation is unavailable below 768px.
+
+**Closed since:** the clone adds a mobile drop-down menu (spec in
+`docs/research/components/navbar.spec.md`). Verified at 390px: panel opens to 204px, closes on link
+click (scrolls to the section), on the X icon and on `Escape`; body scroll is locked while open and
+restored afterwards.

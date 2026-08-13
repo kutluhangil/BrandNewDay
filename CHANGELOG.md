@@ -2,6 +2,7 @@
 
 ## 2026-08-13
 
+- Added a working mobile menu to the navbar (drop-down panel, X/Escape/link-click close, body scroll lock, aria attributes) — the original hamburger opened nothing.
 - Verified the clone at 390px and 768px via same-origin iframes: no horizontal overflow, all sections stack as the original does; findings recorded in `docs/research/spydyy-portfolio.vercel.app/BEHAVIORS.md`.
 
 - Cloned `spydyy-portfolio.vercel.app` as a personal portfolio: Navbar, Hero + marquee, About, Skills, Projects and Contact sections rebuilt in Next.js with GSAP/ScrollTrigger animations copied 1:1 from the target.

@@ -34,8 +34,25 @@
 
 ## Responsive
 - ≥768px: link row visible, `px-12`.
-- <768px: link row hidden, hamburger shown. The hamburger has no menu wired up in the original;
-  the clone keeps that behaviour and only adds `aria-label`/`type` for correctness.
+- <768px: link row hidden, hamburger shown and wired to a drop-down panel (see below).
+
+## Mobile menu (addition, not in the original)
+The original hamburger opens nothing, which leaves the site unnavigable below 768px. The clone adds a
+panel in the same visual language:
+
+- Container: `md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-out`,
+  open `max-h-80 opacity-100`, closed `max-h-0 opacity-0`. Measured content height: 204px.
+- Inner: `flex flex-col px-6 pt-4 pb-2`.
+- Link: `group flex items-center gap-3 py-3 border-b border-white/10 text-sm font-bold text-gray-400 uppercase tracking-[0.15em] transition-colors duration-300 hover:text-white`
+  with a red dash that grows on hover: `w-0 h-[2px] bg-red-600 transition-all duration-300 ease-out group-hover:w-5 shadow-[0_0_8px_rgba(220,38,38,0.8)]`
+  — the same accent treatment as the desktop underline.
+- While open, the `nav` uses the scrolled styling (`bg-black/90 backdrop-blur-md …`) regardless of scroll position.
+- Icon swaps between `M4 6h16M4 12h16M4 18h16` and `M6 18L18 6M6 6l12 12`.
+- Closes on link click and on `Escape`; `document.body.style.overflow` is locked to `hidden` while open
+  and restored on close/unmount.
+- A11y: `aria-expanded`, `aria-controls="mobile-menu"`, and an `aria-label` that flips between
+  "Open menu" and "Close menu".
 
 ## Deviations from the original
-- `aria-label="Open menu"` and `type="button"` added to the hamburger (a11y/correctness, no visual change).
+- `aria-label` and `type="button"` on the hamburger (a11y/correctness, no visual change).
+- The mobile menu above — the only deliberate functional addition to this component.
