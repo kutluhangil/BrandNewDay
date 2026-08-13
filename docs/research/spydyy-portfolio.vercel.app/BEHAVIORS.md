@@ -117,3 +117,23 @@ Breakpoints are Tailwind defaults (`sm:640px`, `md:768px`, `lg:1024px`).
 | Skills | 2-column grid | 2-column from `sm`, hanging figure `w-40` (`md`) | single column, figure `w-28` |
 | Projects | 2-column grid, `max-w-4xl` | 2-column from `sm` | single column, standing figure `w-32` |
 | Contact | form 2-column name/email row | 2-column from `sm` | single column |
+
+### Clone verification (2026-08-13)
+
+Verified by rendering the clone inside 390×740 and 768×740 same-origin iframes (the Chrome window
+would not resize, and media queries respond to the iframe viewport, so this is equivalent).
+
+- No horizontal overflow at either width (`scrollWidth` 384 at 390, 762 at 768; `body` keeps `overflow-x:hidden`).
+- Hero: heading/eyebrow/CTA stack correctly; buttons wrap to two rows at 390.
+- About: `flex-col-reverse` puts the portrait above the copy at both widths.
+- Skills: 1 column at 390, 2 columns at 768. Projects: same. Contact: name/email stack at 390.
+- Nav: hamburger replaces the link row below `md`; scrolled black bar renders correctly.
+
+Known overlaps, present in the original with the same classes and therefore kept:
+- Skills hanging figure overlaps the top-right card's level badge.
+- Contact hanging figure overlaps the form card (it is `pointer-events-none`, so input focus still works).
+- Hero copy block is `left-6 … w-full`, so it extends ~18px past the right edge at 390; clipped by
+  `overflow-x:hidden`.
+
+Functional gap inherited from the original: the mobile hamburger button opens nothing — there is no
+mobile menu, so navigation is unavailable below 768px.

@@ -2,6 +2,8 @@
 
 ## 2026-08-13
 
+- Verified the clone at 390px and 768px via same-origin iframes: no horizontal overflow, all sections stack as the original does; findings recorded in `docs/research/spydyy-portfolio.vercel.app/BEHAVIORS.md`.
+
 - Cloned `spydyy-portfolio.vercel.app` as a personal portfolio: Navbar, Hero + marquee, About, Skills, Projects and Contact sections rebuilt in Next.js with GSAP/ScrollTrigger animations copied 1:1 from the target.
 - Added portfolio content model (`src/types/portfolio.ts`, `src/data/portfolio.ts`) filled with Kutluhan Gül's CV, GitHub and portfolio data — 10 skills and 12 projects with live/repo links.
 - Added `scripts/download-assets.mjs` and pulled the target site's 7 images + favicon into `public/`; CV PDF exposed at `public/Kutluhan_Gul_FullStack.pdf` for the hero download button.
