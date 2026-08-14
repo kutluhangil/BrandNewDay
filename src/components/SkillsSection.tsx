@@ -118,18 +118,13 @@ export default function SkillsSection() {
             <div className="absolute inset-0 bg-[#a31515] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-400 ease-out z-0" />
             <div className="relative z-10 flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-[#a31515] group-hover:bg-white transition-colors duration-300 shadow-[0_0_8px_rgba(163,21,21,0.6)]" />
-              <div className="flex flex-col">
-                <span className="text-sm md:text-base font-black uppercase tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300">
-                  {skill.name}
-                </span>
-                <span className="text-[10px] font-semibold text-gray-400 group-hover:text-gray-200 transition-colors duration-300 uppercase tracking-widest">
-                  {skill.category}
-                </span>
-              </div>
+              <span className="text-sm md:text-base font-black uppercase tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300">
+                {skill.name}
+              </span>
             </div>
             <div className="relative z-10">
               <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-white text-gray-700 group-hover:bg-black group-hover:text-white rounded-full transition-colors duration-300 shadow-sm">
-                {skill.level}
+                {skill.category}
               </span>
             </div>
           </div>

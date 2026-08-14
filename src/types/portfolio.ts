@@ -1,7 +1,6 @@
 export interface Skill {
   name: string;
   category: "Frontend" | "Backend" | "Languages" | "Tools";
-  level: "Advanced" | "Proficient";
 }
 
 export interface Project {

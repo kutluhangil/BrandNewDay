@@ -30,16 +30,16 @@ export const PRIMARY_STACK = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: "React", category: "Frontend", level: "Advanced" },
-  { name: "JavaScript / TS", category: "Languages", level: "Advanced" },
-  { name: "HTML / CSS", category: "Frontend", level: "Advanced" },
-  { name: "Node.js & Express", category: "Backend", level: "Proficient" },
-  { name: "Redux Toolkit", category: "Frontend", level: "Advanced" },
-  { name: "REST API", category: "Backend", level: "Advanced" },
-  { name: "Tailwind CSS", category: "Frontend", level: "Advanced" },
-  { name: "MongoDB", category: "Backend", level: "Proficient" },
-  { name: "Git & GitHub", category: "Tools", level: "Advanced" },
-  { name: "Prompt Engineering", category: "Tools", level: "Advanced" },
+  { name: "React", category: "Frontend" },
+  { name: "JavaScript / TS", category: "Languages" },
+  { name: "HTML / CSS", category: "Frontend" },
+  { name: "Node.js & Express", category: "Backend" },
+  { name: "Redux Toolkit", category: "Frontend" },
+  { name: "REST API", category: "Backend" },
+  { name: "Tailwind CSS", category: "Frontend" },
+  { name: "MongoDB", category: "Backend" },
+  { name: "Git & GitHub", category: "Tools" },
+  { name: "Prompt Engineering", category: "Tools" },
 ];
 
 export const PROJECTS: Project[] = [
