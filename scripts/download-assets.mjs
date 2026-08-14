@@ -4,14 +4,15 @@ import { dirname, join } from "node:path";
 const BASE = "https://spydyy-portfolio.vercel.app";
 const OUT = join(process.cwd(), "public");
 
+// The target's two portrait assets (hero identity layer and profile picture)
+// are photos of its own author and are deliberately not downloaded — those
+// slots are filled by scripts/generate-placeholders.mjs instead.
 const ASSETS = [
   ["/assets/image-1-fYP2o7gg.png", "images/hero-mask-top.png"],
-  ["/assets/image-2-DS0sMyr7.png", "images/hero-identity-bottom.png"],
   ["/assets/web1-770H2sSx.png", "images/web.png"],
   ["/assets/spydy-DLbFrGCQ.png", "images/spider.png"],
   ["/assets/spydy_hang-Cac1gK30.png", "images/spider-hanging.png"],
   ["/assets/spydy_stand-BwBM-zCr.png", "images/spider-standing.png"],
-  ["/assets/mypic-a3-nZ6gT.png", "images/profile.png"],
   ["/favicon.svg", "favicon.svg"],
 ];
 
