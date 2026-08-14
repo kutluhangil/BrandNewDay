@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CONTACT } from "@/data/portfolio";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,10 @@ export default function ContactSection() {
   const backgroundWebRef = useRef<HTMLImageElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const hangingRef = useRef<HTMLDivElement>(null);
-  const [sent, setSent] = useState(false);
+  const [handedOff, setHandedOff] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -109,24 +113,44 @@ export default function ContactSection() {
         ref={cardRef}
         className="w-full max-w-2xl bg-gray-50/90 backdrop-blur-sm border border-gray-200 p-8 rounded-2xl shadow-sm relative z-10"
       >
-        {sent ? (
+        {handedOff ? (
           <div className="py-12 flex flex-col items-center text-center">
             <div className="w-12 h-12 bg-[#a31515] text-white rounded-full flex items-center justify-center text-xl font-black mb-4 shadow-md animate-bounce">
               ✓
             </div>
             <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 mb-2">
-              Message Sent!
+              Your Mail App Is Open
             </h3>
             <p className="text-sm text-gray-600 font-medium">
-              Thanks for reaching out. I&apos;ll get back to you shortly.
+              Hit send there and the message reaches me. Nothing opened? Write
+              me directly at{" "}
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="text-[#a31515] font-bold underline underline-offset-2"
+              >
+                {CONTACT.email}
+              </a>
+              .
             </p>
+            <button
+              type="button"
+              onClick={() => setHandedOff(false)}
+              className="mt-6 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-[#a31515] transition-colors cursor-pointer"
+            >
+              Back to the form
+            </button>
           </div>
         ) : (
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              setSent(true);
-              setTimeout(() => setSent(false), 4000);
+              const subject = `Portfolio contact — ${name}`;
+              const body = `${message}\n\n—\n${name}\n${email}`;
+              const mailto = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+                subject,
+              )}&body=${encodeURIComponent(body)}`;
+              window.location.href = mailto;
+              setHandedOff(true);
             }}
             className="flex flex-col gap-5"
           >
@@ -138,6 +162,8 @@ export default function ContactSection() {
                 <input
                   required
                   type="text"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
                   placeholder="Peter Parker"
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:border-[#a31515] focus:ring-1 focus:ring-[#a31515] transition-all"
                 />
@@ -149,6 +175,8 @@ export default function ContactSection() {
                 <input
                   required
                   type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="peter@stark.com"
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:border-[#a31515] focus:ring-1 focus:ring-[#a31515] transition-all"
                 />
@@ -161,6 +189,8 @@ export default function ContactSection() {
               <textarea
                 required
                 rows={4}
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
                 placeholder="Let's build something amazing together..."
                 className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:border-[#a31515] focus:ring-1 focus:ring-[#a31515] transition-all resize-none"
               />
@@ -171,6 +201,9 @@ export default function ContactSection() {
             >
               Send Message
             </button>
+            <p className="text-[11px] text-gray-500 font-medium text-center -mt-1">
+              Opens your mail app with the message ready for {CONTACT.email}
+            </p>
           </form>
         )}
       </div>
