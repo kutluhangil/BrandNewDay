@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/media/hero.svg" alt="Brand New Day — a full-stack developer portfolio" width="100%">
+<img src="docs/media/hero.svg" alt="Brand New Day — the one-page portfolio scrolling from the hero and skills marquee through skills and projects to the contact form" width="100%">
 
 <p>
   <img alt="Next.js" src="https://img.shields.io/badge/Next.js-App%20Router-ff5a36?style=for-the-badge&labelColor=0a0a0c">
@@ -30,6 +30,20 @@ Brand New Day is a personal portfolio built around a career change: years of sol
 
 <img src="docs/media/divider.svg" width="100%" alt="">
 
+## What is on the page
+
+| Section | Detail |
+|---|---|
+| **Skills** | Ten skills (React, JavaScript / TypeScript, HTML / CSS, Node.js & Express, Redux Toolkit, REST API, Tailwind CSS, MongoDB, Git & GitHub, prompt engineering), each tagged by category rather than an invented "advanced" level. |
+| **Projects** | Twelve projects from the GitHub profile, from Cinemania, Money Guard and Slim Moms to SubSense, GitVitals, City Verse, ReBuild ReBreak and Minik Gezgin. |
+| **Contact** | The form builds a `mailto:` message with subject, body, name and address and hands it to the visitor's mail app; nothing is sent through a server. |
+| **CV** | The full-stack CV is served as a PDF for download. |
+| **Mobile** | A real drop-down menu (closes on X, Escape or a link, locks body scroll, with ARIA attributes), checked at 390 px and 768 px with no horizontal overflow. |
+
+All content sits in one typed data file (`src/data/portfolio.ts`), so the components never hold copy.
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
 ## Türkçe özet
 
 **Brand New Day**, İstanbul'da yaşayan bir full-stack geliştiricinin tek sayfalık portfolyo sitesi. Avrupa pazar yeri satıcılarına destek verdiği yıllardan React ve Node.js ürünleri geliştirmeye uzanan kariyer değişimini anlatıyor. Hakkımda, yetenekler, projeler ve iletişim bölümleri GSAP ile kaydırmaya bağlı animasyonlarla açılıyor. Next.js, TypeScript ve shadcn/ui ile yapıldı.
@@ -42,6 +56,7 @@ Brand New Day is a personal portfolio built around a career change: years of sol
 npm install
 npm run dev      # http://localhost:3000
 npm run build
+npm run lint     # eslint
 ```
 
 ```
@@ -54,5 +69,5 @@ docs/research/    reference notes for the layout
 <div align="center">
 <br>
 <a href="https://github.com/kutluhangil"><img src="docs/media/signature.svg" width="100%" alt="Built by kutluhangil"></a>
-<sub>Every day is a chance to rebuild.</sub>
+<sub>Every day is a chance to rebuild · layout rebuilt from a reference portfolio as a study, content and changes are my own.</sub>
 </div>
